@@ -4,12 +4,11 @@ Author: Michael Cooper
 
 Implementation of the bubble sort algorithm from this page:
 https://brilliant.org/wiki/bubble-sort/
-
 '''
 
 def bubble_sort(input_list):
     for i in range(len(input_list)):
-        #Move along hte array swapping elements
+        #Move along the array, swapping elements as we go.
         n = 0
         m = 1
         while m < len(input_list):
