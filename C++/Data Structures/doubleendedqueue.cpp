@@ -1,5 +1,88 @@
-#include <doubleendedqueue.h>
+/* File: doubleendedqueue.cpp
+ * Author: Michael Cooper
+ *
+ * Description: An implementation of an integer-based double ended queue structure.
+ * A double ended queue is a container that permits the insertion and removal of
+ * elements at either the front or back of the container. Double ended queues support
+ * six main operations, all of which are implemented in this file:
+ *    - push_back(elem) - adds the element "elem" to the back of the queue.
+ *    - push_front(elem) - adds the element "elem" to the front of the queue.
+ *    - pop_back() - removes the last element in the queue, returns it.
+ *    - pop_front() - removes the first element in the queue, returns it.
+ *    - back() - returns the last element in the queue without removing it.
+ *    - front() - returns the first element in the queue without removing it.
+ *
+ */
 
+#ifndef DoubleEndedQueue_H
+#define DoubleEndedQueue_H
+
+#include <vector>
+
+using namespace std;
+
+// Class Definition
+class DoubleEndedQueue {
+public:
+    size_t kInitialSize = 2;
+
+  /* Constructor: DoubleEndedQueue()
+   * Usage: DoubleEndedQueue deq;
+   * -------------------------------------------------------
+   * Constructs a new empty double ended queue.
+   */
+    DoubleEndedQueue();
+    
+  /* Destructor: ~DoubleEndedQueue()
+   * Usage: Automatically called.
+   * -------------------------------------------------------
+   * Deallocates memory from the DoubleEndedQueue object.
+   */
+    ~DoubleEndedQueue();
+
+  /* Insertion Operators: push_back(int elem);
+   *                      push_front(int elem);
+   * Usage: deq.push_back(5);
+   * -------------------------------------------------------
+   * push_back adds a new element, elem, to the end of the DoubleEndedQueue.
+   * push_front adds a new element, elem, to the front of the DoubleEndedQueue.
+   */
+    void push_back(int elem);
+    void push_front(int elem);
+
+  /* Removal Operators: pop_back();
+   *                    pop_front();
+   * Usage: deq.pop_back();
+   * -------------------------------------------------------
+   * pop_back removes and returns the element at the end of the DoubleEndedQueue.
+   * pop_front removes and returns the element at the front of the DoubleEndedQueue.
+   */
+    int pop_back();
+    int pop_front();
+
+  /* Inspection Operators: back();
+   *                       front();
+   * Usage: deq.front();
+   * -------------------------------------------------------
+   * back() returns the element at the end of the DoubleEndedQueue without removing it.
+   * front() returns the element at the front of the DoubleEndedQueue without removing it.
+   */
+    int back();
+    int front();
+    
+private:
+    // size() returns the number of elements in the DoubleEndedQueue object.
+    size_t size();
+    // empty() returns whether or not the DoubleEndedQueue object contains no elements.
+    bool empty();
+    
+    // Initializing the vector backing the DoubleEndedQueue.
+    std::vector<int> deq;
+};
+
+#endif
+
+/* ---------- Implementation Below this Point ---------- */
 
 DoubleEndedQueue::DoubleEndedQueue() {
 
