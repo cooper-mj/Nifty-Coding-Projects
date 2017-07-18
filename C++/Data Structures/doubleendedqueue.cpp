@@ -85,11 +85,11 @@ private:
 /* ---------- Implementation Below this Point ---------- */
 
 DoubleEndedQueue::DoubleEndedQueue() {
-
+    //No initialization of variables is needed.
 }
 
 DoubleEndedQueue::~DoubleEndedQueue() {
-
+    
 }
 
 void DoubleEndedQueue::push_back(int elem) {
@@ -138,5 +138,5 @@ size_t DoubleEndedQueue::size() {
 
 bool DoubleEndedQueue::empty() {
     //Return whether or not the DoubleEndedQueue is empty
-    return deq.size() == 0;
+    return size() == 0;
 }
