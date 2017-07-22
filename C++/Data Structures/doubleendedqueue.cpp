@@ -11,7 +11,6 @@
  *    - pop_front() - removes the first element in the queue, returns it.
  *    - back() - returns the last element in the queue without removing it.
  *    - front() - returns the first element in the queue without removing it.
- *
  */
 
 #ifndef DoubleEndedQueue_H
