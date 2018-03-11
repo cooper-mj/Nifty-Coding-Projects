@@ -22,6 +22,7 @@ code_source = [
 "\t\t\tfor line_2 in code_source:",
 "\t\t\t\tprint(repr(line_2))",
 '\t\t\tprint("]")',
+"\t\telse:",
 "\t\tprint(line)",
 "",
 "",
