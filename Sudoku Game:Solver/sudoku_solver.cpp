@@ -84,6 +84,35 @@ bool checkSudoku(vector<vector<int> > board){
 
 	}
 
+	//Now check each box for duplicates
+	//TODO: make this more efficient! The quadrouple for loop is deadly.
+	for (int row_start = 0; row_start < 9; row_start += 3) {
+
+		set<int> boxset;
+
+		for(int row = row_start; row < row_start + 3; row++) {
+
+			for (int col_start = 0; col_start < 9; col_start+=3) {
+
+				for (int col = col_start; col < col_start + 3; col++) {
+
+					if (boxset.find(board[row][col]) != boxset.end()) {
+					cout << "Box Duplicate Found" << endl;
+					return false;
+
+				}
+				if (board[row][col] != -1) boxset.insert(board[row][col]);
+
+
+				}
+
+			}
+
+
+		}
+
+	}
+
 	//TODO - check boxes.
 
 	return true;
@@ -117,10 +146,10 @@ int main()
 	vector<vector<int> > board(9, v);
 
 	updateBoard(board, 5, 3, 3);
-	updateBoard(board, 7, 3, 3);
+	//updateBoard(board, 7, 3, 3);
 
 	updateBoard(board, 1, 1, 1);
-	updateBoard(board, 1, 5, 1);
+	updateBoard(board, 3, 3, 1);
 
 
 	printSudoku(board);
