@@ -2,7 +2,8 @@
 #include <vector>
 #include <string>
 #include <set>
- 
+#include <tuple>
+
 using namespace std;
 
 
@@ -134,22 +135,44 @@ int updateBoard(vector<vector<int> >& board, int row, int col, int val) {
 
 }
 
+/*
+ * Function: presetBoard(vector<vector<int> >& board)
+ *
+ * Description: allows the user to set initial values in the game board,
+ * so that those values are immutable during gameplay/solving.
+ * 
+ */
+set<int> presetBoard(vector<vector<int> >& board) {
+	//Updates the board with initial values that are immutable.
+	set<int> starterValues;
+
+	//Add a series of calls to updateBoard here depending on
+	//the desired presets.
+
+	//Add tuples to starterValues, where each tuple is of the
+	//form (row, col)
+
+	updateBoard(board, 1, 1, 5);
+	updateBoard(board, 1, 2, 3);
+	updateBoard(board, 2, 1, 6);
+
+	return starterValues;
+
+
+}
+
 int main()
 {
 	//Generate the board
-	vector<int> v;
+	vector<int> row;
 	for(int i = 0; i < 9; i++){
-		v.push_back(-1);
+		row.push_back(-1);
 
 	}
 
-	vector<vector<int> > board(9, v);
+	vector<vector<int> > board(9, row);
 
-	updateBoard(board, 5, 3, 3);
-	//updateBoard(board, 7, 3, 3);
-
-	updateBoard(board, 1, 1, 1);
-	updateBoard(board, 3, 3, 1);
+	presetBoard(board);
 
 
 	printSudoku(board);
